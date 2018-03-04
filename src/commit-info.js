@@ -21,7 +21,7 @@ class CommitInfo {
                     return reject(err);
                 }
 				const stdoutTrimmed = stdout.replace(/^'+|'+$/g, '');
-                let commitInfo = JSON.parse(stdout);
+                let commitInfo = JSON.parse(stdoutTrimmed);
                 commitInfo.refs = this.fixGitRefs(commitInfo.refs);
                 return resolve(commitInfo);
             })
